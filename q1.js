@@ -1,0 +1,40 @@
+document.write("1. Implement Binary Search <br> <br> <br> ");
+let recursiveFunction = function (arr, x, start, end) {
+  // Base Condition
+  if (start > end) return false;
+
+  // Find the middle index
+  let mid = Math.floor((start + end) / 2);
+
+  // Compare mid with given key x
+  if (arr[mid] === x) return true;
+
+  // If element at mid is greater than x,
+  // search in the left half of mid
+  if (arr[mid] > x) return recursiveFunction(arr, x, start, mid - 1);
+  // If element at mid is smaller than x,
+  // search in the right half of mid
+  else return recursiveFunction(arr, x, mid + 1, end);
+};
+
+// Driver code
+let arr = [1, 3, 5, 7, 8, 9];
+document.write("Array elements:" + arr + "<br><br>");
+let x = 5;
+document.write("Searched elements is:" + "\n" + x + "<br><br>");
+document.write("Result:" + "\n");
+if (recursiveFunction(arr, x, 0, arr.length - 1))
+  document.write("Element found in list of  an array!<br><br>");
+else
+  document.write(
+    "Element not  found in list of an array!<br><br>" + "<br><br>"
+  );
+
+document.write("<br><br>" + "Array elements:" + arr + "<br><br>");
+x = 6;
+document.write("Searched elements is:" + "\n" + x + "<br><br>");
+
+document.write("Result:" + "\n");
+if (recursiveFunction(arr, x, 0, arr.length - 1))
+  document.write("Element found in list of  an array!<br>");
+else document.write("Element not found in list of  an array!<br>");
